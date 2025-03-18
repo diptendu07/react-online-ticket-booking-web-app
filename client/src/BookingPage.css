@@ -1,0 +1,105 @@
+/* src/BookingPage.css */
+
+.booking-page {
+    padding: 20px;
+  }
+  
+  .booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  
+  .show-timings {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+  }
+  
+  .show-timing-box {
+    border: 1px solid #ddd;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .show-timing-box.selected {
+    background-color: #4caf50;
+    color: white;
+    border: 1px solid #4caf50;
+  }
+  
+  .seat-selection {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr); /* Adjusted number of columns */
+    gap: 5px;
+  }
+  
+  .seat-box {
+    border: 1px solid #666;
+    padding: 3px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: #444;
+    color: #fff;
+    font-size: 0.8rem; /* Smaller text size for seats */
+  }
+  
+  .seat-box.selected {
+    background-color: #4caf50;
+    color: white;
+    border: 1px solid #4caf50;
+  }
+  
+  .meals-selection {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .meal-option {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: #333;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff;
+  }
+  
+  .booking-summary {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .ticket-details-section {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 60%;
+  }
+  
+  .qr-code-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35%;
+  }
+  
+  .qr-code-section svg {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  

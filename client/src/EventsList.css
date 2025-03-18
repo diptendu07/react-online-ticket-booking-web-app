@@ -1,0 +1,63 @@
+/* Generic styling for the page */
+.events-list {
+    background-color: #302f2b; /* Light yellow background */
+    padding: 20px;
+    min-height: 100vh;
+  }
+  
+  /* Generic styling for card container */
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  /* Card styling */
+  .card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  /* Card image */
+  .card-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Card content */
+  .card-content {
+    padding: 15px;
+  }
+  
+  /* Hover effect for card */
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Book Now button */
+  .book-button {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .book-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Ensure text is visible */
+  .card-content p, .card-content h3, .card-content h4 {
+    margin: 5px 0;
+  }
+  
