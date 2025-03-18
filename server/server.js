@@ -71,6 +71,11 @@ const eventSchema = new mongoose.Schema({
 const Movie = mongoose.model('Movie', movieSchema);
 const Event = mongoose.model('Event', eventSchema);
 
+app.get("/", (req, res) => {
+  res.send("Server is running!");
+});
+
+
 // API endpoints
 app.get('/api/movies', async (req, res) => {
   try {
