@@ -9,7 +9,7 @@ const LatestMoviesList = () => {
   const [error, setError] = useState(null); // Store fetch error
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/movies')
+    fetch('https://react-online-ticket-booking-web-app.onrender.com/api/movies')
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);

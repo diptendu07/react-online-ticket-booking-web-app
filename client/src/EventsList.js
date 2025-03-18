@@ -8,7 +8,7 @@ const NearbyEventsList = () => {
   const [filteredEvents, setFilteredEvents] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/events')
+    fetch('https://react-online-ticket-booking-web-app.onrender.com/api/events')
       .then(response => response.json())
       .then(data => {
         setEvents(data);
