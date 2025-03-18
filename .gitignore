@@ -6,7 +6,7 @@ node_modules/
 
 # Build output
 client/build/
-server/public/images/
+
 
 # Logs
 *.log
