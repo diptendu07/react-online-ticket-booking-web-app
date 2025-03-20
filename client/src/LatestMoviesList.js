@@ -3,13 +3,17 @@ import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
 import './LatestMoviesList.css';
 
+const backendURL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+
+console.log("Backend URL: ", backendURL);  // Debugging
+
 const LatestMoviesList = () => {
   const [movies, setMovies] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
-  const [error, setError] = useState(null); // Store fetch error
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('https://react-online-ticket-booking-web-app.onrender.com/api/movies')
+    fetch(`${backendURL}/api/movies`)
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -34,7 +38,7 @@ const LatestMoviesList = () => {
 
     const lowerQuery = query.toLowerCase();
     const filtered = movies.filter(movie =>
-      (movie.title?.toLowerCase().includes(lowerQuery) || '') || 
+      (movie.title?.toLowerCase().includes(lowerQuery) || '') ||
       (movie.genre?.toLowerCase().includes(lowerQuery) || '')
     );
 
@@ -46,14 +50,14 @@ const LatestMoviesList = () => {
       <SearchBar onSearch={handleSearch} />
       <h2>Latest Movies</h2>
 
-      {error && <p className="error-message">{error}</p>} {/* Show error message if fetch fails */}
+      {error && <p className="error-message">{error}</p>}
 
       <div className="card-container">
         {filteredMovies.length > 0 ? (
           filteredMovies.map(movie => (
             <div className="card" key={movie._id}>
               <img 
-                src={movie.image || '/default-movie.jpg'} // Use fallback image
+                src={movie.image?.includes("http") ? movie.image : `${backendURL}/images/${movie.image}`}
                 alt={movie.title || 'Untitled Movie'}
                 className="card-image"
               />
@@ -62,11 +66,7 @@ const LatestMoviesList = () => {
                 <p>Genre: {movie.genre || "N/A"}</p>
                 <p>Rating: {movie.ratings || "N/A"}</p>
                 <p>Reviews: {movie.reviews?.join(', ') || "No reviews yet"}</p>
-                <Link 
-                  to="/booking" 
-                  state={{ movie }} 
-                  className="book-button"
-                >
+                <Link to="/booking" state={{ movie }} className="book-button">
                   Book Now
                 </Link>
               </div>

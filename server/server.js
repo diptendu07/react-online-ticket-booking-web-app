@@ -10,6 +10,7 @@ const app = express();
 // Load environment variables
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI;
+const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:5000";
 
 // CORS Configuration
 app.use(cors({
@@ -28,9 +29,9 @@ app.use(
   helmet.contentSecurityPolicy({
     useDefaults: true,
     directives: {
-      "img-src": ["'self'", "data:", "http://localhost:5000"],
-      "script-src-elem": ["'self'", "http://localhost:5000"],
-      "default-src": ["'self'", "http://localhost:5000"]
+      "img-src": ["'self'", "data:", BACKEND_URL],
+      "script-src-elem": ["'self'", BACKEND_URL],
+      "default-src": ["'self'", BACKEND_URL]
     }
   })
 );
@@ -41,7 +42,7 @@ app.use('/images', (req, res, next) => {
   next();
 }, express.static(path.join(__dirname, 'public/images')));
 
-// MongoDB connection with authentication
+// MongoDB connection
 mongoose
   .connect(MONGO_URI, {})
   .then(() => console.log('MongoDB connected successfully'))
@@ -75,21 +76,37 @@ app.get("/", (req, res) => {
   res.send("Server is running!");
 });
 
-
-// API endpoints
+// ✅ API endpoint to fetch movies and fix image URLs
 app.get('/api/movies', async (req, res) => {
   try {
     const movies = await Movie.find();
-    res.json(movies);
+
+    const updatedMovies = movies.map(movie => ({
+      ...movie._doc, 
+      image: movie.image?.startsWith("http://localhost:5000") 
+        ? movie.image.replace("http://localhost:5000", BACKEND_URL) 
+        : movie.image
+    }));
+
+    res.json(updatedMovies);
   } catch (err) {
     res.status(500).send('Server error');
   }
 });
 
+// ✅ API endpoint to fetch events and fix image URLs
 app.get('/api/events', async (req, res) => {
   try {
     const events = await Event.find();
-    res.json(events);
+
+    const updatedEvents = events.map(event => ({
+      ...event._doc, 
+      image: event.image?.startsWith("http://localhost:5000") 
+        ? event.image.replace("http://localhost:5000", BACKEND_URL) 
+        : event.image
+    }));
+
+    res.json(updatedEvents);
   } catch (err) {
     res.status(500).send('Server error');
   }
