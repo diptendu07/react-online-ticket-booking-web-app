@@ -1,7 +1,63 @@
-**Make a Project Directory with the following structure:**
+# 🎟️ E-Cube Web Application
 
+**Live Demo:** [Frontend](https://react-online-ticket-booking.netlify.app/) | [Backend API](https://react-online-ticket-booking-web-app.onrender.com/)
+
+## 📌 Overview
+E-Cube Web Application is a modern online ticket booking platform that allows users to browse and book tickets for **movies** and **events**. Built with **React.js** for the frontend and **Node.js with Express** for the backend, this project follows a full-stack development approach and ensures a smooth user experience.
+
+---
+
+## 🚀 Features
+
+### 🎬 **Movies Section**
+- Displays the latest movies available for booking.
+- Fetches movie data dynamically from the backend.
+- Search functionality for quick access.
+
+### 🎭 **Events Section**
+- Lists upcoming events users can attend.
+- Displays event details fetched from the backend.
+
+### 📅 **Booking System**
+- Users can select seats and confirm bookings.
+- Real-time updates from the backend API.
+
+### 🔍 **Search Functionality**
+- Integrated search bar for quick navigation.
+- Filters movies/events based on user input.
+
+### 🎨 **Responsive UI**
+- Styled using CSS to provide a modern and intuitive experience.
+- Fully responsive across all screen sizes.
+
+---
+
+## 🛠️ Tech Stack
+
+### **Frontend:**
+- React.js (Functional Components, Hooks)
+- React Router for navigation
+- Axios for API calls
+- CSS for styling
+
+### **Backend:**
+- Node.js with Express
+- RESTful API endpoints
+- Hosted on Render
+
+### **Database:**
+- Currently using static JSON data (Can be integrated with MongoDB in future versions)
+
+### **Deployment:**
+- **Frontend:** Hosted on Netlify
+- **Backend:** Hosted on Render
+
+---
+
+## 📂 Project Structure
+```
 e-cube-web-application/
-├── client/
+├── client/                 # Frontend React App
 │   ├── public/
 │   │   ├── index.html
 │   │   └── favicon.ico
@@ -17,46 +73,58 @@ e-cube-web-application/
 │   │   ├── App.js
 │   │   ├── index.js
 │   │   ├── index.css
-│   │   
 │   ├── package.json
-|   ├── package-lock.json
+│   ├── package-lock.json
 │   └── /node_modules
-|── server/
+│
+|── server/                 # Backend Node.js Server
 |   ├── server.js
 |   ├── package.json
 |   ├── package-lock.json
-|   |── README.md
+|   ├── README.md
 |   ├── /node_modules
-|   └── /public/images -- (contains all the images)
+|   └── /public/images      # Stores event and movie images
+```
 
-**Navigate to the Client Directory**
->> cd e-cube-web-application/client
+---
 
-**Create a new React application**
->>npx create-react-app .
+## 🚀 How to Run Locally
 
-**Install axios for making HTTP requests:**
->> npm install axios
+### 1️⃣ **Clone the Repository**
+```sh
+git clone https://github.com/your-username/e-cube-web-application.git
+cd e-cube-web-application
+```
 
-**Install react-router-dom for routing:**
->> npm install react-router-dom
+### 2️⃣ **Setup and Run Backend**
+```sh
+cd server
+npm install
+npm start
+```
+> Runs on `http://localhost:5000`
 
-**Navigate to Server Directory(Backend):**
->> cd e-cube-web-application/server
->> npm init -y
+### 3️⃣ **Setup and Run Frontend**
+```sh
+cd client
+npm install
+npm start
+```
+> Runs on `http://localhost:3000`
 
-**Install the required packages to fecth data from MongoDB Database:**
->> npm install express mongoose cors
+---
 
-**Note: All the necessary files like src/App.js, src/LatestMoviesList.js, etc for frontend and server/server.js for backend are updated as .zip files and uploaded in the LMS.**
+## 🤝 Contributing
+Contributions are welcome! Feel free to fork this repository and submit a PR.
 
-**Now navigate to server directory, open Command Prompt and run:**
->> node server.js
+---
 
-**Also navigate to client directory, open Command Prompt and and run:**
->> npm start
+## 📧 Contact
+💡 **Developed by:** *Diptendu Lodh*  
+📩 Email: diptendulodh@gmail.com  
+🌍 LinkedIn: [My Profile](www.linkedin.com/in/diptendu-lodh-70bab9295)  
 
-*N.B. This will start the development server and display the e-cube ticket booking application.*
+---
 
-                     -------------------------------------------------------
+🚀 **Enjoy the E-Cube Experience!** 🎟️🎬
 
