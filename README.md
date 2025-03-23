@@ -79,6 +79,7 @@ e-cube-web-application/
 │
 |── server/                 # Backend Node.js Server
 |   ├── server.js
+|   ├── server.test.js       # Backend test cases
 |   ├── package.json
 |   ├── package-lock.json
 |   ├── README.md
@@ -87,6 +88,13 @@ e-cube-web-application/
 ```
 
 ---
+
+📚 Backend Testing
+
+**The backend API has been tested using Jest and Supertest (/server/server.test.js).**
+
+# Run the below command in /server directory to test:
+>> npm test
 
 ## 🚀 How to Run Locally
 
